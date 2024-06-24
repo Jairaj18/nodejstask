@@ -5,9 +5,10 @@ const jwt = require('jsonwebtoken');
 const {JWT_SECRETKEY} = process.env;
 const transporter = require('../config/nodeMailerConnection');
 
- const errors = validationResult(req);
-    if(!errors.isEmpty()) return res.status(400).json({errors: errors.array()});
 const register = (req, res) => {
+ 
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) return res.status(400).json({errors: errors.array()});
 
     const { firstname, lastname, email, password } = req.body;
 
